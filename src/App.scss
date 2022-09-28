@@ -1,0 +1,54 @@
+@import "./assets/css/utils.scss";
+@import "~normalize.css/normalize.css";
+
+.appLogo {
+  flex: 0 0 133px;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 15s linear;
+  }
+  .swipe-icon {
+    animation: swipe-gesture infinite 1s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-footer {
+  padding-right: 1.5rem;
+  @media (min-width: 992px) {
+    display: block;
+  }
+  @media (min-width: 768px) {
+    padding-right: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+@keyframes swipe-gesture {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

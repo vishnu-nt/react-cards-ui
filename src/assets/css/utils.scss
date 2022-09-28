@@ -1,0 +1,111 @@
+@import "./variable.scss";
+
+.rounded {
+    border-radius: $card-border-radius-sm;
+    @media (min-width: 768px) {
+        border-radius: $card-border-radius;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.padding-lg {
+    padding: 1.5rem;
+}
+
+.my-lg {
+    margin: 1.5rem auto;
+}
+
+.my-xl {
+    margin: 3.5rem auto;
+}
+
+.ml-1 {
+    margin-left: 1rem;
+}
+
+.ml-sm {
+    margin-left: 0.5rem;
+}
+
+.sm\:ml-0 {
+    @media (max-width: 767px) {
+        margin-left: 0;
+    }
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.color-grey {
+    color: $theme-grey-1;
+}
+
+.color-grey-2 {
+    color: $theme-grey-2;
+}
+
+.color-dark {
+    color: $theme-dark;
+}
+
+.color-light {
+    color: $theme-light;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.font-semi-bold {
+    font-weight: 600;
+}
+
+.text-base {
+    font-size: 1rem;
+}
+
+.bg-theme {
+    background-color: $theme-purple;
+}
+
+.bg-light {
+    background-color: $theme-light;
+}
+
+.text-center {
+    text-align: center;
+}
+

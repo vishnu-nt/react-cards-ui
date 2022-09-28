@@ -1,3 +1,14 @@
+# Buy and build
+
+The project uses [example.com](https://chrome.google.com/webstore/detail/tweak-mock-and-modify-htt/feahianecghpnipmhphmfgmpdodhcapi) to create a mock response that follows the structure:
+```
+{
+   build: [{id: string, title: string}],
+   buy: [{id: string, title: string}],
+}
+````
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
