@@ -42,7 +42,7 @@ const Wrapper = styled.div`
       props.theme === "blue" ? selectedBlueCardCss : selectedYellowCardCss};
   }
   @media (min-width: 768px) {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 `;
 
@@ -70,6 +70,8 @@ const IconWrapper = styled.span`
 const Icon = styled.img`
   width: 100%;
   height: 100%;
+  width: 20px;
+  height: 20px;
 `;
 
 const Card = (props) => {
@@ -94,7 +96,7 @@ const Card = (props) => {
             {props.description}
           </p>
           {props.iconUrl && (
-            <IconWrapper theme={props.theme}>
+            <IconWrapper theme={props.theme} className="ml-1">
               <Icon src={props.iconUrl} alt="" />
             </IconWrapper>
           )}

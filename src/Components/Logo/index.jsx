@@ -1,6 +1,14 @@
 import styled from "@emotion/styled";
 import React from "react";
 
+const Svg = styled.svg`
+  @media (min-width: 992px) {
+    position: absolute;
+    left: calc(50% - 65px);
+    top: calc(50% - 65px);
+  }
+`;
+
 const Loader = styled.g`
   animation: ${props => props.isLoading ? 'App-logo-spin infinite 20s linear' : ''};
   transform-origin: 65px 65px;
@@ -8,7 +16,7 @@ const Loader = styled.g`
 
 const Logo = ({ isLoading }) => {
   return (
-    <svg
+    <Svg
       width="133"
       height="133"
       viewBox="0 0 133 133"
@@ -112,7 +120,7 @@ const Logo = ({ isLoading }) => {
           />
         </filter>
       </defs>
-    </svg>
+    </Svg>
   );
 };
 

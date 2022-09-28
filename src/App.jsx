@@ -4,8 +4,16 @@ import "./App.scss";
 import Layout from "./Components/Layout/Index";
 import Card from "./Components/Card";
 import Logo from "./Components/Logo";
-import lockIcon from "./assets/icons/lock.svg";
 import swipeIcon from "./assets/icons/swipe.svg";
+import lockIcon from "./assets/icons/lock.svg";
+import caseIcon from "./assets/icons/briefcase.svg";
+import dbIcon from "./assets/icons/db.svg";
+import pricetagIcon from "./assets/icons/pricetag.svg";
+import settingsIcon from "./assets/icons/settings.svg";
+import timeIcon from "./assets/icons/time.svg";
+import unlockIcon from "./assets/icons/unlock.svg";
+
+const icons = [lockIcon, caseIcon, dbIcon, pricetagIcon, settingsIcon, timeIcon, unlockIcon];
 
 const PageTitleContainer = styled.div`
   @media (max-width: 991px) {
@@ -36,17 +44,27 @@ const DetailContainer = styled.div`
   width: 100%;
   margin: 1.5rem auto;
   @media (min-width: 768px) {
-    padding: 0 2rem;
+    flex: 0 1 100%;
+    padding: 0 1rem;
     display: flex;
   }
   @media (min-width: 992px) {
     width: 30%;
-    padding: 2rem;
+    padding: 1rem;
     display: block;
     margin: 0;
   }
   .card {
-    flex: 1 0 0;
+    @media (min-width: 768px) {
+      width: calc(100% - 1.33rem - 133px);
+    }
+    @media (min-width: 992px) {
+      flex: 1 0 0;
+      width: auto;
+      margin-top: 133px;
+      position: relative;
+      top: 133px;
+    }
   }
 `;
 
@@ -60,12 +78,12 @@ const CardWrapper = styled.div`
 `;
 
 const Container = styled.div`
-  min-height: calc(100vh - 3rem);
-  padding: 1.5rem 0 1.5rem 1.5rem;
+  min-height: calc(100vh - 6rem);
+  padding: 3rem 0 3rem 3rem;
   flex-direction: column;
   flex: 1;
   @media (min-width: 992px) {
-    padding: 1.5rem;
+    padding: 3rem;
   }
 `;
 
@@ -76,11 +94,12 @@ const CardContainer = styled.div`
     rgba(242, 245, 248, 0.96) 0%,
     rgba(242, 245, 248, 0.02) 100%
   );
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 1.33rem 0 0 1.33rem;
   @media (min-width: 992px) {
     width: 30%;
+    flex: 1 0 30%;
     padding: 0 1rem;
-    border-radius: 2rem;
+    border-radius: 1.33rem;
     background: linear-gradient(
       180deg,
       rgba(242, 245, 248, 0.96) 0%,
@@ -168,22 +187,22 @@ function App() {
         </p>
       </PageTitleContainer>
       <Container className="bg-theme flex rounded">
-        <Content className="flex items-center justify-between w-full">
+        <Content className="flex items-center justify-between w-full relative">
           <CardContainer className="relative">
             <h2 className="padding-lg m-0">If you build yourself</h2>
             <CardWrapper>
-              {cards.build.map((card) => (
+              {cards.build.map((card, index) => (
                 <Card
                   description={card.title}
                   key={card.id}
                   isSelected={selectedCard?.id === card.id}
                   theme="blue"
-                  iconUrl={lockIcon}
+                  iconUrl={icons[index]}
                   onMouseOver={() => fetchCard(card.id)}
                   onClick={() => fetchCard(card.id, true)}
                   onMouseLeave={() => {
                     if (!isMobileOrTablet) {
-                      setSelectedCard(null);
+                      // setSelectedCard(null);
                     }
                   }}
                 />
@@ -196,10 +215,9 @@ function App() {
               </GestureContainer>
             )}
           </CardContainer>
-          <DetailContainer className="items-center">
+          <DetailContainer className="items-center relative">
             <Logo
               isLoading={isLoading}
-              className={isLoading ? "App-logo" : ""}
             />
             {selectedCard && (
               <Card
@@ -212,13 +230,13 @@ function App() {
           <CardContainer>
             <h2 className="padding-lg m-0">If you buy</h2>
             <CardWrapper>
-              {cards.buy.map((card) => (
+              {cards.buy.map((card, index) => (
                 <Card
                   description={card.title}
                   isSelected={selectedCard?.id === card.id}
+                  iconUrl={icons[index]}
                   key={card.id}
                   theme="yellow"
-                  iconUrl={lockIcon}
                   onMouseOver={() => fetchCard(card.id)}
                   onClick={() => fetchCard(card.id, true)}
                   onMouseLeave={() => {
