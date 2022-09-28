@@ -197,7 +197,7 @@ function App() {
                   key={card.id}
                   isSelected={selectedCard?.id === card.id}
                   theme="blue"
-                  iconUrl={icons[index]}
+                  iconUrl={icons[index] || icons[0]}
                   onMouseOver={() => fetchCard(card.id)}
                   onClick={() => fetchCard(card.id, true)}
                   onMouseLeave={() => {
@@ -234,7 +234,7 @@ function App() {
                 <Card
                   description={card.title}
                   isSelected={selectedCard?.id === card.id}
-                  iconUrl={icons[index]}
+                  iconUrl={icons[index] || icons[0]}
                   key={card.id}
                   theme="yellow"
                   onMouseOver={() => fetchCard(card.id)}
