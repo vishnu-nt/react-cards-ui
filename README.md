@@ -8,6 +8,17 @@ The project uses [example.com](https://chrome.google.com/webstore/detail/tweak-m
 }
 ````
 
+# Demo
+
+![Super Tokens Test - desktop](https://user-images.githubusercontent.com/22218316/192693775-46142fba-a578-4e93-8306-0f43cc59469e.png)
+![Super Tokens Test - mobile](https://user-images.githubusercontent.com/22218316/192693791-614a7721-a064-4098-9d5b-7e8f63cc9b0e.png)
+![Super Tokens Test - tablet](https://user-images.githubusercontent.com/22218316/192693796-57901519-3666-4988-8a22-9b7dc22028c1.png)
+
+[screen-capture (2).webm](https://user-images.githubusercontent.com/22218316/192693964-786675b6-6fab-4624-9afc-7f761add724a.webm)
+
+[screen-capture (3).webm](https://user-images.githubusercontent.com/22218316/192693984-36c16d48-8e2a-4942-951d-da0f7c0694e1.webm)
+
+
 
 # Getting Started with Create React App
 
