@@ -1,4 +1,5 @@
 import React from 'react'
+import { withOverride } from '../utils/withOverride';
 
 const C2 = (props) => {
   return (
@@ -9,4 +10,4 @@ const C2 = (props) => {
   )
 }
 
-export default C2;
+export default withOverride(C2, 'C2');

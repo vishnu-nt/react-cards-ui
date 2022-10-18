@@ -20,6 +20,22 @@ const Provider = (props) => {
     return type.name; // Component
   };
 
+  const renderChild = (child, childProps) => {
+    debugger;
+    if (child) {
+      const type = getName(child);
+      if (value[type]) {
+        const overrideComponent = value[type]({
+          CurrentComponentTree: () => child,
+          ...childProps
+        });
+        return overrideComponent;
+      }
+      return child;
+    }
+    return null;
+  }
+
   /**
    * Invoked with Children. Each child is compared with passed-in value.
    * If Override function is passed, the callback will be called with default component and props.
@@ -27,27 +43,30 @@ const Provider = (props) => {
    * @returns {Children}
    */
   const processChildren = (children) => {
-    return Children.map(children, () => {
-      if (!children) return null;
-      const { props } = children;
-      if (!props) return children;
-      if (props.children) {
-        const type = getName(props.children);
-        if (value[type]) {
-          const overrideComponent = value[type]({
-            CurrentComponentTree: () => props.children,
-            ...props.children.props
-          });
-          return overrideComponent;
-        }
-        return processChildren(props.children);
+    return Children.map(children, (child) => {
+      debugger;
+      if (!child) return null;
+      const childProps = child.props;
+      if (!childProps) return child;
+      if (childProps.children) {
+        // const type = getName(props.child);
+        // if (value[type]) {
+        //   const overrideComponent = value[type]({
+        //     CurrentComponentTree: () => props.child,
+        //     ...props.child.props
+        //   });
+        //   return overrideComponent;
+        // }
+        return cloneElement(renderChild(child, childProps), childProps, [processChildren(childProps.children)]);
       }
+      return renderChild(child);
     });
   };
 
   return (
     <componentContext.Provider value={value}>
-      {cloneElement(children, props, [processChildren(children)])}
+      {processChildren(children)}
+      {/* {cloneElement(children, props, [processChildren(props.children)])} */}
     </componentContext.Provider>
   );
 }
